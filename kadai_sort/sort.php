@@ -8,28 +8,27 @@
 
 <body>
     <p>
-        <?php
+    <?php
         // ここにコードを書いていく
-        $nums = [15, 4, 18, 23, 10 ];
-
-        // キーと値の相関関係維持しない、配列を昇順にソートする
-        echo "昇順にソートします。<br>";
-
-        $num = array(15, 4, 18, 23, 10);
-
-        sort($num, SORT_NUMERIC);
-        foreach ($num as $val) {
-            echo "$val<br>";
+        function sort_2way($array, $order) {
+            if ($order) {
+                echo "昇順にソートします。<br>";
+                sort($array);
+            } else {
+                echo "降順にソートします。<br>";
+                rsort($array);
+            }
+            foreach ($array as $num) {
+                echo $num . '<br>';
+            }
         }
 
-        // キーと値の相関関係維持しない、配列を降順にソートする
-        echo "降順にソートします。<br>";
+        $nums = [15, 4, 18, 23, 10];
 
-        rsort($num, SORT_NUMERIC);
-        foreach ($num as $val) {
-            echo "$val<br>";
-        }
-
+        // 昇順にソート
+        sort_2way($nums, true);
+        // 降順にソート
+        sort_2way($nums, false);
         ?>
     </p>
 </body>
